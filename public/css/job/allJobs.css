@@ -1,0 +1,326 @@
+:root {
+    --primaryColor: #0076de;
+    --whiteColor: #fff;
+    --blackcolor: #333;
+    --grayColor: #f6f8fa;
+    --labelColor: #64b1f5;
+    --yellowColor: #e4c644;
+}
+
+header {
+    width: 100%;
+    height: 80vh;
+    background-image: url("../../assets/ai-generated-8762055_1280.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-position: top;
+}
+
+.header-title{
+    position: absolute;
+    bottom: 10rem;
+    left: 3rem;
+    letter-spacing: 3; 
+    font-size: 4rem;
+    color: #64b1f5;
+    text-shadow: 4px 2px 0px rgba(0, 0, 0, 0.2);
+    width: 50vw;
+    height: 15rem;
+}
+
+.header-title h2{
+    color: #1355cf;
+    line-height: 1.2;
+    font-size: 6.2rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: oblique;
+}
+
+.header-title h2>span{
+    color: var(--grayColor);
+    
+}
+
+
+
+.search-wrapper {
+    width: 60%;
+    margin: auto;
+    min-width: 300px;
+    height: 3.5rem;
+    position: relative;
+    
+}
+
+.search-box {
+    width: 100%;
+    position: absolute;
+    background-color: var(--grayColor);
+    box-shadow: rgba(2, 11, 20, 0.2) 0px 5px 15px;
+    top: -45%;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.search-card {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0.5rem;
+    gap: .2rem;
+}
+
+.search-input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    padding: 0.5rem;
+
+}
+
+.serach-button {
+    width: 200px;
+    background: var(--primaryColor);
+    border: none;
+    color: var(--whiteColor);
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.filter-box {
+    height: auto;
+    font-size: 0.8rem;
+    /* width: 60%; */
+    min-width: 300px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-dropdown {
+    /* border-bottom: 1px solid var(--labelColor); */
+    width: 90%;
+    margin: 25px;
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.filter-select {
+    border: none;
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #0076de;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+.job-filter-btn{
+    border: none;
+    background-color:#0076de;
+    padding: 0.5rem 1rem;
+    margin-bottom: 5px;
+    border-radius: 0.8rem;
+    font-size: 1.1rem;
+    color: white;
+    font-weight: 500;
+}
+.job-rmFilter-btn{
+    border: 1px solid #0076de;
+    padding: 0.5rem 1rem;
+    border-radius: 0.8rem;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: rgb(22, 5, 5);
+    font-weight: 500;
+}
+
+
+.filter-choosen {
+    width: 100%;
+    padding: 0.3rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.choosen-card {
+    background: var(--primaryColor);
+    padding: 0.2rem 0.5rem;
+    border-radius: 20px;
+    color: var(--whiteColor);
+    cursor: pointer;
+}
+
+.job-list {
+    margin: 5%;
+    padding: 1rem;
+    background-color: var(--grayColor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.job-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 10px 16px; /* Adjusted padding to decrease height */
+    margin: 8px auto; /* Centered with auto margin */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Increased width */
+    height: auto; /* Ensures card height is adaptive */
+    -webkit-box-shadow: 11px 11px 23px -12px rgba(0, 0, 0, 0.86);
+    -moz-box-shadow: 11px 11px 23px -12px rgba(0, 0, 0, 0.86);
+    box-shadow: 11px 11px 23px -12px rgba(0, 0, 0, 0.86);
+    transition: all ease-in .3s;
+  }
+
+  .job-card:hover {
+    transform: translateY(5px);
+  }
+
+  .badge-custom {
+    background-color: #3582f54d;
+    color: rgba(0, 0, 0, 0.686);
+    font-size: 0.9rem;
+  }
+  .rightBadge-cont{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:end;
+  }
+
+  .job-card-p{
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .job-card-points{
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-weight: 600;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-badge {
+    /* border: 1px solid blue; */
+    background-color: #3582f54d;
+    padding: 3px 7px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+
+
+/* Media Queries for Responsive Design */
+
+/* Tablets (768px and above) */
+@media (max-width: 1145px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .navbar-logo > a {
+        font-size: 1.5rem;
+    }
+
+    .nav-menu {
+        width: 300px;
+    }
+
+    .header-title {
+        font-size: 3rem;
+        bottom: 5rem;
+        left: 2rem;
+    }
+
+    .search-wrapper {
+        width: 80%;
+    }
+
+    .header-title{
+        margin-top: 4rem;
+    }
+
+    .header-title h2{
+    
+        font-size: 3rem;
+    }
+}
+
+/* Mobile devices (480px and below) */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem 1.5rem;
+    }
+
+    .navbar-logo > a {
+        font-size: 1.2rem;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .header-title {
+        top: 18rem;
+        left: 1rem;
+        width: 70vw;
+    }
+    .header-title h2{
+        font-size: 3rem;
+    }
+
+    .search-wrapper {
+        width: 90%;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.5rem 1.5rem;
+    }
+
+    .navbar-logo > a {
+        font-size: 1.2rem;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .header-title {
+        bottom: 2rem;
+        left: 1rem;
+        width: 70vw;
+    }
+    .header-title h2{
+        font-size: 2.8rem;
+    }
+
+    .search-wrapper {
+        width: 90%;
+    }
+
+}
+

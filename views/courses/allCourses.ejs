@@ -1,0 +1,65 @@
+<%- include("../layout/coursesBoiler.ejs") %>
+
+<div class="courses-page">
+
+    <div class="courses-hero-head">
+        <h2>Empowering Your Future with Real-World Tech Skills</h2>
+    </div>
+    <div class="courses-hero">
+        <div class="courses-hero-left">
+            <div class="courses-hero-left-points">
+                <div class="left-points-card">
+                    <h5><i class="fa-solid fa-circle-check"></i>&nbsp;100% Placement Guarantee</h5>
+                    <p>We guarantee job placement upon course completion, thanks to our strong industry partnerships and personalized career services.</p>
+                </div>
+                <div class="left-points-card">
+                    <h5><i class="fa-solid fa-circle-check"></i>&nbsp;Hands-On Learning</h5>
+                    <p>Every course is designed to provide practical, real-world experience with industry-relevant projects.</p>
+                </div>
+                <div class="left-points-card">
+                    <h5><i class="fa-solid fa-circle-check"></i>&nbsp;Expert Instructors</h5>
+                    <p>Learn from industry experts who are passionate about teaching and committed to your success.</p>
+                </div>
+                <div class="left-points-card">
+                    <h5><i class="fa-solid fa-circle-check"></i>&nbsp;Tailored Learning Experience</h5>
+                    <p>Our courses adapt to your individual learning style and pace, with personalized feedback and support.</p>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+
+    <div class="course-page-listing">
+        <div class="course-page-list-head">
+            <h1>Explore Courses</h1>
+        </div>
+    
+        <div class="course-page-list">
+
+            <div class="course-page-list-cont row row-cols-1 row-cols-md-3 g-5">
+
+                <% for(let course of allCourses ) { %>
+                    <div class="col">
+                        <div class="landing-course-card card h-100 shadow">
+                            <img src="<%= course.courseImg %>" class="card-img-top" alt="<%= course.title %>">
+                            <div class="card-body">
+                                <h2 class="card-title text-primary fs-4"><%= course.title %></h2>
+                                <p class="card-text"><%= course.tagline %></p>
+                                <div class="text-right">
+                                    <button type="button" class="btn btn-primary" onclick="window.location.href='/explore/<%= course._id %>/course'">Explore</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("../includes/contact.ejs") %>
+<%- include("../includes/footer.ejs") %>
+
+
+        
+    

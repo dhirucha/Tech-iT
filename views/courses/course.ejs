@@ -1,0 +1,163 @@
+<%- include("../layout/coursesBoiler.ejs") %>
+
+<script>
+    // Injecting EJS variables into JavaScript
+    const brochureTitle = "<%= course.title %>";
+</script>
+
+<div class="course-detail-page">
+    <!-- Hero Section -->
+    <div class="course-detail-hero">
+        <div class="course-detail-left">
+            <h1><%= course.title %></h1>
+            <p><%= course.description %></p>
+            <p><strong>Duration:</strong><%= course.duration %></p>
+            <p><strong>Mode:</strong>Offline</p>
+        </div>
+        <div class="course-detail-right">
+            <img src="<%= course.courseImg %>" alt="Full Stack Development">
+        </div>
+    </div>
+
+    <!-- Syllabus Section -->
+    <div class="syllabus-section">
+        <h2>Syllabus</h2>
+        <ul>    
+            <% for(let i=0; i<course.syllabus.length; i++) { %> 
+                <li class="syllabus-topic"><i class="check-mark fa fa-check-circle"></i>&nbsp; <%= course.syllabus[i] %></li>
+            <% } %>
+        </ul>
+
+        <%- include("./brochure.ejs") %>
+    </div>
+
+    <!-- Course Highlights Section -->
+    <div class="course-highlights">
+        <div class="highlight-card">
+            <h5><i class="fa fa-briefcase"></i>&nbsp; 100% Placement Guarantee</h5>
+            <p>Guaranteed job placement after course completion with the support of our career services team and industry partners.</p>
+        </div>
+        <div class="highlight-card">
+            <h5><i class="fa fa-chalkboard-teacher"></i>&nbsp; Hands-On Learning</h5>
+            <p>Gain practical experience through real-world projects and build a portfolio that showcases your skills.</p>
+        </div>
+        <div class="highlight-card">
+            <h5><i class="fa fa-users"></i>&nbsp; Industry-Expert Instructors</h5>
+            <p>Learn from professionals with years of experience in web development and software engineering.</p>
+        </div>
+    </div>
+
+    <%- include("./certificate.ejs") %>
+
+    <!-- Enrollment Button -->
+    <div class="enroll-btn">
+        <button type="button" id="enrollBtn">Enroll Now</button>
+    </div>
+
+
+    <!-- pop up -->
+     <!-- Brochure Form Popup -->
+    <div id="brochurePopup" class="popup-overlay">
+        <div class="popup-content">
+            <button class="close-btn" onclick="closePopup('brochurePopup')">&times;</button>
+            <div class="popup-header">Download Brochure</div>
+            <form class="popup-form" id="brochureForm" action="https://api.web3forms.com/submit" method="POST">
+
+                <input type="hidden" name="access_key" value="c4af8459-b50d-4d7b-a118-c20e61cc663a">
+         
+
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="text" name="phone" placeholder="Mobile Number" required>
+                <input type="email" name="email" placeholder="Email" required>
+
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <button type="submit">Submit & Download</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Enroll Now Form Popup -->
+    <div id="enrollPopup" class="popup-overlay">
+        <div class="popup-content">
+            <button class="close-btn" onclick="closePopup('enrollPopup')">&times;</button>
+            <div class="popup-header">Enroll Now</div>
+            <form class="popup-form" id="enrollForm" action="https://api.web3forms.com/submit" method="POST">
+
+                <input type="hidden" name="access_key" value="c4af8459-b50d-4d7b-a118-c20e61cc663a">
+                
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="number" name="phone" placeholder="Mobile Number" required>
+                <input type="text" name="city" placeholder="Your City" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <select class="popup-form-drop" name="course" required>
+                    <option value="" disabled selected>Select a Course</option>
+                    <option value="data-analysis">Data Analysis</option>
+                    <option value="full-stack">Full Stack Development</option>
+                    <option value="website-design">Website Design</option>
+                    <option value="digital-marketing">Digital Marketing</option>
+                    <option value="graphic-design">Graphic Design</option>
+                    <option value="accounting">Professional Accounting & MIS</option>
+                    <option value="ai-ml">AI/ML</option>
+                </select>
+
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+    <%- include("../includes/footer.ejs") %>
+
+<script src="/js/enrollBrochure.js"></script>
+<script>
+    document.getElementById('brochureForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const formData = new FormData(this); // Create a FormData object
+
+        fetch(this.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json()) // Parse JSON response
+        .then(data => {
+            if (data.success) {
+                
+                alert('Thank you! Brochure is downloaded.'); // Success message
+                window.location.href="/explore/allCourses";
+                this.reset(); // Reset form fields
+            } else {
+                alert('Submission failed: Please try again'); // Error message
+            }
+        })
+        .catch(error => {
+            alert('An error occurred: Please try again'); // Handle fetch error
+        });
+    });
+
+    document.getElementById('enrollForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const formData = new FormData(this); // Create a FormData object
+
+        fetch(this.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json()) // Parse JSON response
+        .then(data => {
+            if (data.success) {
+                alert("Thank you for enrolling!, we'll get back you soon! "); // Success message
+                window.location.href="/explore/allCourses";
+                this.reset(); // Reset form fields
+            } else {
+                alert('Submission failed: Please try again'); // Error message
+            }
+        })
+        .catch(error => {
+            alert('An error occurred: Please try again'); // Handle fetch error
+        });
+    });
+</script>

@@ -1,0 +1,25 @@
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #011d3a;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+  }
+ 
+  .aboutUs{
+    border-radius: 5px;
+    margin:  52px;
+    background-color: #BBDEFB;
+  }
+
+  @media (max-width: 576px) {
+    .aboutUs{
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    .aboutUs-cont{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
