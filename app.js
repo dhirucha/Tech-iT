@@ -36,7 +36,7 @@ app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 
 // Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 // Define the directory where views are located
 app.set('views', path.join(__dirname, 'views'));
